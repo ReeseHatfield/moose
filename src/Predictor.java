@@ -21,27 +21,27 @@ public class Predictor {
         List<Map<Integer, Integer>> people = new ArrayList<>();
         
         for(String name: names){
-            Map<Integer, Integer> yearToOccurances = new HashMap<>();
+            Map<Integer, Integer> yearToRank = new HashMap<>();
 
             for(Year year: this.data){
                 Entry nameEntryInYear = year.getEntries().getEntryByName(name);
 
                 // aparently there were 0 people legally  named "Bob" in the US 2021. Weird
-                int occurancesInYear;
+                int rankInYear;
                 if(nameEntryInYear == null){
-                    occurancesInYear = 0;
+                    rankInYear = 0;
                 }
                 else {
-                    occurancesInYear = nameEntryInYear.getOccurrences();
+                    rankInYear = nameEntryInYear.getRank();
                 }
 
-                yearToOccurances.put(year.getCalendarYear(), occurancesInYear);
+                yearToRank.put(year.getCalendarYear(), rankInYear);
             }
 
-            people.add(yearToOccurances);
+            people.add(yearToRank);
         }
 
-        Map<Integer, Integer> yearToMeanOccAllName = new HashMap<>();
+        Map<Integer, Integer> yearToMeanRankAllName = new HashMap<>();
 
         for (Year year : data) { 
             int yearValue = year.getCalendarYear();
@@ -50,7 +50,7 @@ public class Predictor {
                 sum += person.getOrDefault(yearValue, 0);
             }
             int mean = sum / names.size();
-            yearToMeanOccAllName.put(yearValue, mean);
+            yearToMeanRankAllName.put(yearValue, mean);
         }
 
 
@@ -58,7 +58,7 @@ public class Predictor {
         int bestYear = -1;
         int maxMean = 0;
 
-        for(Map.Entry<Integer, Integer> entry: yearToMeanOccAllName.entrySet()){
+        for(Map.Entry<Integer, Integer> entry: yearToMeanRankAllName.entrySet()){
             if(entry.getValue() > maxMean){
                 bestYear = entry.getKey();
                 maxMean = entry.getValue();
