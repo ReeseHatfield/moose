@@ -23,7 +23,16 @@ public class Predictor {
 
             for(Year year: this.data){
                 Entry nameEntryInYear = year.getEntries().getEntryByName(name);
-                yearToOccurances.put(year.getCalendarYear(), nameEntryInYear.getOccurrences());
+
+                int occurancesInYear;
+                if(nameEntryInYear == null){
+                    occurancesInYear = 0;
+                }
+                else {
+                    occurancesInYear = nameEntryInYear.getOccurrences();
+                }
+
+                yearToOccurances.put(year.getCalendarYear(), occurancesInYear);
             }
 
             System.out.println(yearToOccurances);
