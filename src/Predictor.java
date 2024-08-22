@@ -1,7 +1,13 @@
+import java.util.List;
+
 public class Predictor {
     
 
+    // list of names
     public Predictor(){
-        System.out.println("Predicted");
+        List<Year> data = YearManager.loadData();
+
     }
+
+
 }
