@@ -1,4 +1,6 @@
+package data;
 import java.io.File;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,6 +22,10 @@ public class YearManager {
 
             years.add(curYear);
         }
+
+        Collections.sort(years, (y1, y2) -> {
+            return y1.getCalendarYear() - y2.getCalendarYear();
+        });
 
         return years;
     }

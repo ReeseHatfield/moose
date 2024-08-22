@@ -1,3 +1,4 @@
+package data;
 public class Entry {
     private final int rank;
     private final String name;

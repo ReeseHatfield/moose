@@ -1,5 +1,14 @@
-mkdir -p bin/
-javac -d bin src/*.java
+#!/bin/bash
 
+SRC_DIR="src"
+BIN_DIR="bin"
 
-java -cp bin Driver
+# clean old bin
+rm -rf "$BIN_DIR"
+
+mkdir -p "$BIN_DIR"
+
+# Compile Java files
+javac -d "$BIN_DIR" "$SRC_DIR"/**/*.java "$SRC_DIR"/*.java
+
+java -cp "$BIN_DIR" Driver
