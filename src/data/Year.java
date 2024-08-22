@@ -1,14 +1,17 @@
 package data;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Year {
-    private List<Entry> entries;
+    private Entries entries;
     private final String TOKEN = ",";
     private final int calendarYear;
+
+
+    public Entries getEntries(){
+        return this.entries;
+    }
 
     public Year(File yobFile, int calendarYear){
         this.entries = createEntries(yobFile);
@@ -19,9 +22,9 @@ public class Year {
         return this.calendarYear;
     }
 
-    private List<Entry> createEntries(File yobFile){
+    private Entries createEntries(File yobFile){
 
-        List<Entry> entries = new LinkedList<>();
+        Entries entries = new Entries();
 
         try (Scanner fileScanner = new Scanner(yobFile)) {
             int rank = 1;
