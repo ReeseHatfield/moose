@@ -14,7 +14,7 @@ public class Driver {
         if (args.length == 0) {
 
             CLI.printColorLn(ANSI.RED, "Error: No input file provided.");
-            CLI.printColorLn(ANSI.RED, "Usage:", "./run.sh <filename>");
+            CLI.printColorLn(ANSI.RED, "Usage:", "./moose.sh <filename>");
             System.exit(1);
         }
 
