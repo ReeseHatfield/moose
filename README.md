@@ -27,4 +27,8 @@ you can use Moose to estimate a birth year based on their names.
 With the natures of the SSA's data, moose tends to predict the earliest year. So add a few years for a more accuratae range of time
 
 ## Examples:
-![Example image here](./examples/ex.png)
+<img src="./examples/ex.png" alt="Example class photo" width="700" height="600">
+<br/>
+
+
+- Thanks to [Nathan Weiland](https://nathanweiland.com) for the image
